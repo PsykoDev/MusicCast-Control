@@ -23,7 +23,7 @@ Should work with all MusicCast devices with API support enabled.<br />
 
 ## Usage
 
-Set your amplifier's IP address and wanted input devices to settings.json.<br />
+Set your amplifier's IP address and wanted input devices to Config.json.<br />
 You can get a list of your amplifier's supported inputs by clicking the model name.<br />
 
 Complete input device list:<br />
