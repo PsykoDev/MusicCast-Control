@@ -12,6 +12,14 @@ Should work with all MusicCast devices with API support enabled.<br />
 * Volume
 * Mute
 * Customize inputs
+* Customize Sound Program
+* Pure direct toggle
+* Enhancer toggle
+* Adaptive DRC toggle
+* Extra Bass toggle
+* Bass Level 
+* Dialogue Level
+* Tone Control Treble + Bass 
 
 ## Usage
 
@@ -25,6 +33,11 @@ Complete input device list:<br />
 > **coaxial / digital1 / digital2 / digital / line1 / line2 / line3 / line_cd / analog / tv / bd_dvd /**<br />
 > **usb_dac / usb / bluetooth / server / net_radio / rhapsody / napster / pandora / siriusxm /**<br />
 > **spotify / juke / airplay / radiko / qobuz / mc_link / main_sync / none**
+
+CompleteSound Program list:<br />
+> **munich / vienna / chamber / cellar_club / roxy_theatre / bottom_line / sports / action_game / roleplaying_game /**<br />
+> **music_video / standard / spectacle / sci-fi / adventure / drama / mono_movie / 2ch_stereo / all_ch_stereo /**<br />
+> **surr_decoder / straight /**<br />
 
 Note that you can use capitalized letters when adding devices.
 
