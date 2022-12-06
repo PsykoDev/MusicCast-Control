@@ -34,12 +34,12 @@ Complete input device list:<br />
 > **usb_dac / usb / bluetooth / server / net_radio / rhapsody / napster / pandora / siriusxm /**<br />
 > **spotify / juke / airplay / radiko / qobuz / mc_link / main_sync / none**
 
-CompleteSound Program list:<br />
+Note that you can use capitalized letters when adding devices.
+
+Complete Sound Program list:<br />
 > **munich / vienna / chamber / cellar_club / roxy_theatre / bottom_line / sports / action_game / roleplaying_game /**<br />
 > **music_video / standard / spectacle / sci-fi / adventure / drama / mono_movie / 2ch_stereo / all_ch_stereo /**<br />
 > **surr_decoder / straight /**<br />
-
-Note that you can use capitalized letters when adding devices.
 
 ## TODO
 
