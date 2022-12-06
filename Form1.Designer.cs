@@ -202,7 +202,7 @@ namespace MusicCast_Control
             // BassLabel
             // 
             this.BassLabel.AutoSize = true;
-            this.BassLabel.Location = new System.Drawing.Point(71, 256);
+            this.BassLabel.Location = new System.Drawing.Point(75, 256);
             this.BassLabel.Name = "BassLabel";
             this.BassLabel.Size = new System.Drawing.Size(60, 15);
             this.BassLabel.TabIndex = 21;
@@ -215,7 +215,7 @@ namespace MusicCast_Control
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.ForeColor = System.Drawing.Color.LawnGreen;
-            this.button1.Location = new System.Drawing.Point(38, 253);
+            this.button1.Location = new System.Drawing.Point(42, 253);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(28, 21);
@@ -230,7 +230,7 @@ namespace MusicCast_Control
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.ForeColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(1, 253);
+            this.button2.Location = new System.Drawing.Point(5, 253);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(28, 21);
@@ -336,7 +336,7 @@ namespace MusicCast_Control
             this.DiallvlDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.DiallvlDown.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DiallvlDown.ForeColor = System.Drawing.Color.Green;
-            this.DiallvlDown.Location = new System.Drawing.Point(1, 280);
+            this.DiallvlDown.Location = new System.Drawing.Point(5, 280);
             this.DiallvlDown.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.DiallvlDown.Name = "DiallvlDown";
             this.DiallvlDown.Size = new System.Drawing.Size(28, 21);
@@ -351,7 +351,7 @@ namespace MusicCast_Control
             this.DiallvlUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.DiallvlUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DiallvlUp.ForeColor = System.Drawing.Color.LawnGreen;
-            this.DiallvlUp.Location = new System.Drawing.Point(38, 280);
+            this.DiallvlUp.Location = new System.Drawing.Point(42, 280);
             this.DiallvlUp.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.DiallvlUp.Name = "DiallvlUp";
             this.DiallvlUp.Size = new System.Drawing.Size(28, 21);
@@ -362,7 +362,7 @@ namespace MusicCast_Control
             // DialLevelLabel
             // 
             this.DialLevelLabel.AutoSize = true;
-            this.DialLevelLabel.Location = new System.Drawing.Point(71, 283);
+            this.DialLevelLabel.Location = new System.Drawing.Point(75, 283);
             this.DialLevelLabel.Name = "DialLevelLabel";
             this.DialLevelLabel.Size = new System.Drawing.Size(84, 15);
             this.DialLevelLabel.TabIndex = 35;

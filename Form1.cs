@@ -14,6 +14,8 @@ namespace MusicCast_Control;
 
 public partial class Form1 : Form
 {
+    public static bool AddFormClosed = false;
+
     private BackgroundWorker? bg;
 
     private HttpClient client = new();
@@ -39,13 +41,40 @@ public partial class Form1 : Form
     private async void Form1_Load(object sender, EventArgs e)
     {
         await config.InitializeAsync();
-        if (config.Config.IP == "IP")
-            MessageBox.Show("Please add you MusicCast ip in Config.json");
-        YamahaAV.ip = config.Config.IP;
-        fetch_info();
-        backgroundUpdate();    
+        await updatConfigIP();
+        Setup();
     }
 
+    private void Setup()
+    {
+        YamahaAV.ip = config.Config.IP;
+        fetch_info();
+        //backgroundUpdate();
+    }
+
+    private async Task updatConfigIP()
+    {
+        if (config.Config.IP == "IP")
+        {
+            //MessageBox.Show("");
+            DialogResult result = MessageBox.Show("Please add you MusicCast ip in Config.json\nDo you want add new ip ? ", "", MessageBoxButtons.YesNo);
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    {
+                        Form2 frm = new Form2();
+                        frm.Show();
+                        break;
+                    }
+                case DialogResult.No:
+                    {
+                        break;
+                    }
+            }
+
+            AddFormClosed = false;
+        }
+    }
 
     private void Read_input_list()
     {
