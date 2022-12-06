@@ -36,9 +36,11 @@ public partial class Form1 : Form
         InitializeComponent();
     }
 
-    private void Form1_Load(object sender, EventArgs e)
+    private async void Form1_Load(object sender, EventArgs e)
     {
-        config.InitializeAsync();
+        await config.InitializeAsync();
+        if (config.Config.IP == "IP")
+            MessageBox.Show("Please add you home theater ip in Config.json ");
         YamahaAV.ip = config.Config.IP;
         mcip = config.Config.IP;
         fetch_info();
