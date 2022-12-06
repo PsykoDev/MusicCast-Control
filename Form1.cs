@@ -20,7 +20,6 @@ public partial class Form1 : Form
 
     private readonly ConfigBuild config = new();
 
-
     //
     // read the json settings file
     //
@@ -42,7 +41,6 @@ public partial class Form1 : Form
         if (config.Config.IP == "IP")
             MessageBox.Show("Please add you MusicCast ip in Config.json");
         YamahaAV.ip = config.Config.IP;
-        mcip = config.Config.IP;
         fetch_info();
         backgroundUpdate();    
     }
@@ -71,7 +69,7 @@ public partial class Form1 : Form
     {
         try
         {
-            ip_address.Text = mcip;
+            ip_address.Text = config.Config.IP;
             var statusjson = await zoneconfig.getStatus(ZoneConfig.zone.main);
             var deviceinfojson = await systemconfig.getDeviceInfo();
             var featuresjson = await systemconfig.getFeatures();
