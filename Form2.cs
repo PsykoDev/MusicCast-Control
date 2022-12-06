@@ -30,6 +30,7 @@ namespace MusicCast_Control
 
         private async void AddButton_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "") return;
             await ConfigBuild.updateConfig(textBox1.Text);
             Form1.AddFormClosed = true;
             DialogResult result = MessageBox.Show("Please restart application ", "New IP", MessageBoxButtons.YesNo);
