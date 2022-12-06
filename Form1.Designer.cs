@@ -63,6 +63,7 @@ namespace MusicCast_Control
             this.ToneTrebleDown = new System.Windows.Forms.Button();
             this.ToneTrebleUp = new System.Windows.Forms.Button();
             this.ToneTrebleLabel = new System.Windows.Forms.Label();
+            this.programSound = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // power_button
@@ -98,7 +99,7 @@ namespace MusicCast_Control
             this.inputChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inputChange.ForeColor = System.Drawing.Color.White;
             this.inputChange.FormattingEnabled = true;
-            this.inputChange.Location = new System.Drawing.Point(32, 88);
+            this.inputChange.Location = new System.Drawing.Point(42, 88);
             this.inputChange.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.inputChange.Name = "inputChange";
             this.inputChange.Size = new System.Drawing.Size(132, 23);
@@ -122,7 +123,7 @@ namespace MusicCast_Control
             // 
             this.volume.AutoSize = true;
             this.volume.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.volume.Location = new System.Drawing.Point(67, 63);
+            this.volume.Location = new System.Drawing.Point(149, 62);
             this.volume.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.volume.MinimumSize = new System.Drawing.Size(62, 0);
             this.volume.Name = "volume";
@@ -134,7 +135,7 @@ namespace MusicCast_Control
             // center_text
             // 
             this.center_text.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.center_text.Location = new System.Drawing.Point(-2, 28);
+            this.center_text.Location = new System.Drawing.Point(80, 27);
             this.center_text.Name = "center_text";
             this.center_text.Size = new System.Drawing.Size(200, 29);
             this.center_text.TabIndex = 15;
@@ -175,7 +176,7 @@ namespace MusicCast_Control
             this.volumedown_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.volumedown_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.volumedown_button.ForeColor = System.Drawing.Color.Green;
-            this.volumedown_button.Location = new System.Drawing.Point(32, 62);
+            this.volumedown_button.Location = new System.Drawing.Point(114, 61);
             this.volumedown_button.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.volumedown_button.Name = "volumedown_button";
             this.volumedown_button.Size = new System.Drawing.Size(28, 21);
@@ -190,7 +191,7 @@ namespace MusicCast_Control
             this.volumeup_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.volumeup_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.volumeup_button.ForeColor = System.Drawing.Color.LawnGreen;
-            this.volumeup_button.Location = new System.Drawing.Point(136, 62);
+            this.volumeup_button.Location = new System.Drawing.Point(218, 61);
             this.volumeup_button.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.volumeup_button.Name = "volumeup_button";
             this.volumeup_button.Size = new System.Drawing.Size(28, 21);
@@ -323,7 +324,7 @@ namespace MusicCast_Control
             // 
             // SignalInfoLabel
             // 
-            this.SignalInfoLabel.Location = new System.Drawing.Point(178, 28);
+            this.SignalInfoLabel.Location = new System.Drawing.Point(190, 331);
             this.SignalInfoLabel.Name = "SignalInfoLabel";
             this.SignalInfoLabel.Size = new System.Drawing.Size(179, 56);
             this.SignalInfoLabel.TabIndex = 34;
@@ -454,6 +455,20 @@ namespace MusicCast_Control
             this.ToneTrebleLabel.TabIndex = 39;
             this.ToneTrebleLabel.Text = "Tone Treble:";
             // 
+            // programSound
+            // 
+            this.programSound.BackColor = System.Drawing.Color.Black;
+            this.programSound.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.programSound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.programSound.ForeColor = System.Drawing.Color.White;
+            this.programSound.FormattingEnabled = true;
+            this.programSound.Location = new System.Drawing.Point(178, 88);
+            this.programSound.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.programSound.Name = "programSound";
+            this.programSound.Size = new System.Drawing.Size(132, 23);
+            this.programSound.TabIndex = 45;
+            this.programSound.SelectedIndexChanged += new System.EventHandler(this.programSound_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -461,6 +476,7 @@ namespace MusicCast_Control
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(369, 402);
+            this.Controls.Add(this.programSound);
             this.Controls.Add(this.ToneBassDown);
             this.Controls.Add(this.ToneBassUp);
             this.Controls.Add(this.ToneBassLabel);
@@ -519,8 +535,10 @@ namespace MusicCast_Control
         private ComboBox inputChange;
         private Label volume;
         private string currentInput;
+        private string currentSoundProgram;
         private Label center_text;
         private string input_list;
+        private string sound_program_list;
         private Label ip_address;
         private Button mute_button;
         private bool mute;
@@ -567,5 +585,6 @@ namespace MusicCast_Control
         private Button ToneTrebleDown;
         private Button ToneTrebleUp;
         private Label ToneTrebleLabel;
+        private ComboBox programSound;
     }
 }

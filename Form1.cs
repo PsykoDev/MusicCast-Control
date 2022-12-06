@@ -24,6 +24,7 @@ public partial class Form1 : Form
     // read the json settings file
     //
     private string[] inputs = new string[50];
+    private string[] sound_program = new string[50];
 
     private readonly SystemConfig systemconfig = new();
     private YamahaAV yamahaAV = new();
@@ -48,7 +49,7 @@ public partial class Form1 : Form
 
     private void Read_input_list()
     {
-        inputs = Regex.Replace(input_list, "[ \"\n\r\\[\\]\t]", "").Split(","); // need fix 
+        inputs = Regex.Replace(input_list, "[ \"\n\r\\[\\]\t]", "").Split(",");
         foreach (var data in inputs)
         {
             inputChange.Items.Add(data);
@@ -58,6 +59,20 @@ public partial class Form1 : Form
         foreach (var input in inputs)
             if (currentInput == input.ToLower())
                 inputChange.Text = input;
+    }
+
+    private void Read_sound_program_list()
+    {
+        sound_program = Regex.Replace(sound_program_list, "[ \"\n\r\\[\\]\t]", "").Split(",");
+        foreach (var data in sound_program)
+        {
+            programSound.Items.Add(data);
+        }
+
+        // Show the selected input on input list as default
+        foreach (var input in sound_program)
+            if (currentSoundProgram == input.ToLower())
+                programSound.Text = input;
     }
 
 
@@ -80,6 +95,7 @@ public partial class Form1 : Form
             var features = JsonNode.Parse(featuresjson);
             var signalinfo = JsonNode.Parse(signalinfojson);
             input_list = Convert.ToString(features["zone"][0]["input_list"]);
+            sound_program_list = Convert.ToString(features["zone"][0]["sound_program_list"]);
 
             // 
             // info fields
@@ -94,6 +110,7 @@ public partial class Form1 : Form
             maxVol = Convert.ToString(status["max_volume"]);
             curVol = Convert.ToString(status["volume"]);
             currentInput = Convert.ToString(status["input"]);
+            currentSoundProgram = Convert.ToString(status["sound_program"]);
 
             mute = (bool)status["mute"];
             PureDirect = (bool)status["pure_direct"];
@@ -126,6 +143,11 @@ public partial class Form1 : Form
             if (inputChange.Items.Count < 1)
             {
                 Read_input_list();
+            }
+
+            if (programSound.Items.Count < 1)
+            {
+                Read_sound_program_list();
             }
         }
 
@@ -237,6 +259,18 @@ public partial class Form1 : Form
         {
             await zoneconfig.setInput(ZoneConfig.zone.main,input: selectedInput);
             currentInput = selectedInput;
+        }
+    }
+
+    private async void programSound_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ActiveControl = null;
+
+        var selectedInput = ((string)programSound.SelectedItem).ToLower();
+        if (currentSoundProgram != selectedInput)
+        {
+            await zoneconfig.setSoundProgram(ZoneConfig.zone.main, selectedInput);
+            currentSoundProgram = selectedInput;
         }
     }
 
@@ -376,4 +410,6 @@ public partial class Form1 : Form
             zoneconfig.setToneControl(ZoneConfig.zone.main, null, tonebass);
         }
     }
+
+
 }
