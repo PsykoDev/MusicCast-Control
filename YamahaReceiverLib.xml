@@ -58,8 +58,8 @@
         </member>
         <member name="M:YamahaReceiverLib.Clock.ClockConfig.setClockFormat(System.String)">
             <summary>
-                For setting format of time display. Available only when " clock_format " exists in clock - func_list
-                under /system/getFeatures.
+                For setting format of time display. Available only when " clock_format " exists in clock - func_list under
+                /system/getFeatures.
             </summary>
             <param name="clock_format"></param>
             <returns></returns>
@@ -90,6 +90,75 @@
                 }
             </example>
             <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YamahaReceiverLib.Network_USB.DistributionConfig">
+            <summary>
+                APIs in regard to Link distribution related setting and getting information
+            </summary>
+        </member>
+        <member name="M:YamahaReceiverLib.Network_USB.DistributionConfig.getDistributionInfo">
+            <summary>
+                For retrieving a Device information related to Link distribution
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Network_USB.DistributionConfig.setServerInfo(System.String)">
+            <summary>
+                For setting a Link distribution server (Link master)
+            </summary>
+            <param name="data"></param>
+            <example>
+                {
+                "group_id":"9A237BF5AB80ED3C7251DFF49825CA42",
+                "zone":"main",
+                "type":"add",
+                "client_list":[
+                "192.168.0.5",
+                "192.168.0.11"
+                ]
+                }
+            </example>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Network_USB.DistributionConfig.setClientInfo(System.String)">
+            <summary>
+            </summary>
+            <param name="data"></param>
+            <example>
+                {
+                "group_id":"9A237BF5AB80ED3C7251DFF49825CA42",
+                "zone":[
+                "main",
+                "zone2"
+                ]
+                }
+            </example>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Network_USB.DistributionConfig.startDistribution(System.Int32)">
+            <summary>
+                For initiating Link distribution. This is valid to a Device that is setup as Link distribution server
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Network_USB.DistributionConfig.stopDistribution">
+            <summary>
+                For quitting Link distribution. This is valid to a Device that is setup as Link distribution server
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Network_USB.DistributionConfig.setGroupName(System.String)">
+            <summary>
+                For setting up Group Name. Note that Group Name is reserved in volatile memory
+            </summary>
+            <param name="data"></param>
+            <example>
+                {
+                "name":"[Link] Living Room"
+                }
+            </example>
             <returns></returns>
         </member>
         <member name="M:YamahaReceiverLib.Network_USB.Network_USBConfig.getPresetInfo">
@@ -132,8 +201,8 @@
         </member>
         <member name="M:YamahaReceiverLib.Network_USB.Network_USBConfig.getListInfo(System.Int32,System.Int32,System.String,System.String)">
             <summary>
-                For retrieving list information. Basically this info is available to all relevant inputs, not limited to
-                or independent from current input
+                For retrieving list information. Basically this info is available to all relevant inputs, not limited to or
+                independent from current input
             </summary>
             <param name="index"></param>
             <param name="size"></param>
@@ -153,8 +222,8 @@
         </member>
         <member name="M:YamahaReceiverLib.Network_USB.Network_USBConfig.setSearchString">
             <summary>
-                For setting search text. Specifies string executing this API before select an element with its attribute
-                being “Capable of Search” or retrieve info about searching list(Pandora).
+                For setting search text. Specifies string executing this API before select an element with its attribute being
+                “Capable of Search” or retrieve info about searching list(Pandora).
             </summary>
             <returns></returns>
         </member>
@@ -180,7 +249,15 @@
             <param name="num"></param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:YamahaReceiverLib.Network_USB.Network_USBConfig.movePreset(System.Int32,System.Int32)" -->
+        <member name="M:YamahaReceiverLib.Network_USB.Network_USBConfig.movePreset(System.Int32,System.Int32)">
+            <summary>
+                For moving preset. For example, if excute movePreset?from=4 to=2 for list {[A], [B], [C], [D], [E] ...}, list is
+                arranged as {[A], [D], [B], [C], [E] ...}.
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
         <member name="M:YamahaReceiverLib.Network_USB.Network_USBConfig.getSettings">
             <summary>
                 For retrieving setup of Net/USB
@@ -189,8 +266,7 @@
         </member>
         <member name="M:YamahaReceiverLib.Network_USB.Network_USBConfig.setQuality(YamahaReceiverLib.Network_USB.Network_USBConfig.quality,System.String)">
             <summary>
-                For setting the reproduction quality of streaming. Refer to available Input/setting value via
-                /system/getSetting.
+                For setting the reproduction quality of streaming. Refer to available Input/setting value via /system/getSetting.
             </summary>
             <param name="value"></param>
             <param name="input"></param>
@@ -261,8 +337,7 @@
         </member>
         <member name="M:YamahaReceiverLib.Network_USB.Network_USBConfig.getServiceInfo">
             <summary>
-                For retrieving information of various Streaming Service. The combination of Input/Type is available as
-                follows;
+                For retrieving information of various Streaming Service. The combination of Input/Type is available as follows;
             </summary>
             <returns></returns>
         </member>
@@ -275,15 +350,13 @@
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.disconnectBluetoothDevice">
             <summary>
-                For disconnecting Bluetooth (Sink) device. This API is available only when “bluetooth_tx_setting” is
-                true
+                For disconnecting Bluetooth (Sink) device. This API is available only when “bluetooth_tx_setting” is true
             </summary>
             <returns></returns>
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.getBluetoothDeviceList">
             <summary>
-                For retrieving Bluetooth (Sink) device list. This API is available only when “bluetooth_tx_setting” is
-                true
+                For retrieving Bluetooth (Sink) device list. This API is available only when “bluetooth_tx_setting” is true
             </summary>
             <returns></returns>
         </member>
@@ -344,24 +417,23 @@
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.sendIrCode(System.String)">
             <summary>
-                For sending specific remote IR code. A Device is operated same as remote IR code reception. But
-                continuous IR code cannot be used in this command.Refer to each Device’s IR code list for details
+                For sending specific remote IR code. A Device is operated same as remote IR code reception. But continuous IR code
+                cannot be used in this command.Refer to each Device’s IR code list for details
             </summary>
             <param name="code"></param>
             <returns></returns>
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.setAirPlayPin(System.String)">
             <summary>
-                For setting AirPlay PIN. This is valid only when “airplay” exists in “func_list” found in
-                /system/getFuncStatus
+                For setting AirPlay PIN. This is valid only when “airplay” exists in “func_list” found in /system/getFuncStatus
             </summary>
             <param name="pin"></param>
             <returns></returns>
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.setAutoPowerStandby(System.String)">
             <summary>
-                For setting Auto Power Standby status. Actual operations/reactions of enabling Auto Power Standby depend
-                on each Device
+                For setting Auto Power Standby status. Actual operations/reactions of enabling Auto Power Standby depend on each
+                Device
             </summary>
             <param name="boolvalue"></param>
             <returns></returns>
@@ -401,9 +473,9 @@
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.setIpSettings(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-                For setting IP. This API only set IP as maintain same network connection status (Wired/Wireless
-                Lan/Wireless Direct/Extend). If no parameter is specified, current parameter is used.If set parameter is
-                incomplete, it is possible not to provide network avalability.
+                For setting IP. This API only set IP as maintain same network connection status (Wired/Wireless Lan/Wireless
+                Direct/Extend). If no parameter is specified, current parameter is used.If set parameter is incomplete, it is
+                possible not to provide network avalability.
             </summary>
             <param name="BoolDHCP"></param>
             <param name="ip_address"></param>
@@ -462,9 +534,8 @@
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.setWiredLan(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-                For setting Wired Network. Network connection is switched to wired by using this API. If no parameter is
-                specified, current parameter is used.If set parameter is incomplete, it is possible not to provide
-                network avalability
+                For setting Wired Network. Network connection is switched to wired by using this API. If no parameter is specified,
+                current parameter is used.If set parameter is incomplete, it is possible not to provide network avalability
             </summary>
             <param name="BoolDHCP"></param>
             <param name="ip_address"></param>
@@ -476,9 +547,9 @@
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.setWirelessDirect(System.String,System.String)">
             <summary>
-                For setting Wireless Network (Wireless Direct). Network connection is switched to wireless (Wireless
-                Direct) by using this API.If no parameter is specified, current parameter is used.If set parameter is
-                incomplete, it is possible not to provide network avalability
+                For setting Wireless Network (Wireless Direct). Network connection is switched to wireless (Wireless Direct) by
+                using this API.If no parameter is specified, current parameter is used.If set parameter is incomplete, it is
+                possible not to provide network avalability
             </summary>
             <param name="type"></param>
             <param name="key"></param>
@@ -486,9 +557,9 @@
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.setWirelessLan(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-                For setting Wireless Network (Wi-Fi). Network connection is switched to wireless (Wi-Fi) by using this
-                API.If no parameter is specified, current parameter is used.If set parameter is incomplete, it is
-                possible not to provide network avalability
+                For setting Wireless Network (Wi-Fi). Network connection is switched to wireless (Wi-Fi) by using this API.If no
+                parameter is specified, current parameter is used.If set parameter is incomplete, it is possible not to provide
+                network avalability
             </summary>
             <param name="ssid"></param>
             <param name="securityType"></param>
@@ -510,9 +581,21 @@
         </member>
         <member name="M:YamahaReceiverLib.System.SystemConfig.updateBluetoothDeviceList">
             <summary>
-                For updating Bluetooth (Sink) device list. This API is available only when “bluetooth_tx_setting” is
-                true under /system/getFuncStatus. Retrieve update status and list information after finish updating via
+                For updating Bluetooth (Sink) device list. This API is available only when “bluetooth_tx_setting” is true under
+                /system/getFuncStatus. Retrieve update status and list information after finish updating via
                 /system/getBluetoothDeviceList.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.System.SystemConfig.checkNetworkUpdate">
+            <summary>
+            For check if new update is available
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.System.SystemConfig.isNewFirmwareAvailable(System.String)">
+            <summary>
+            For check if new update is available through wifi or lan
             </summary>
             <returns></returns>
         </member>
@@ -556,9 +639,9 @@
         </member>
         <member name="M:YamahaReceiverLib.Tuner.TunerConfig.switchPreset(YamahaReceiverLib.Tuner.TunerConfig.dir)">
             <summary>
-                For selecting Tuner preset. Call this API after change the target zone’s input to Tuner. It is possible
-                to change Band in case of preset type is “common”. In case of preset type is “separate”, need to change
-                the target Band before calling this API. This API is available on and after API Version 1.17.
+                For selecting Tuner preset. Call this API after change the target zone’s input to Tuner. It is possible to change
+                Band in case of preset type is “common”. In case of preset type is “separate”, need to change the target Band
+                before calling this API. This API is available on and after API Version 1.17.
             </summary>
             <param name="dir"></param>
             <returns></returns>
@@ -594,18 +677,27 @@
             <param name="band"></param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:YamahaReceiverLib.Tuner.TunerConfig.movePreset(YamahaReceiverLib.Tuner.TunerConfig.band,System.Int32,System.Int32)" -->
+        <member name="M:YamahaReceiverLib.Tuner.TunerConfig.movePreset(YamahaReceiverLib.Tuner.TunerConfig.band,System.Int32,System.Int32)">
+            <summary>
+                For moving preset. For example, if excute movePreset?from=4 to=2 for list {[A], [B], [C], [D], [E] ...}, list is
+                arranged as {[A], [D], [B], [C], [E] ...}.
+            </summary>
+            <param name="band"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
         <member name="M:YamahaReceiverLib.Tuner.TunerConfig.startDabInitialScan">
             <summary>
-                For starting DAB Initial Scan. Available only when " dab_initial_scan " exists in tuner - func_list
-                under /system/getFeatures.
+                For starting DAB Initial Scan. Available only when " dab_initial_scan " exists in tuner - func_list under
+                /system/getFeatures.
             </summary>
             <returns></returns>
         </member>
         <member name="M:YamahaReceiverLib.Tuner.TunerConfig.cancelDabInitialScan">
             <summary>
-                For canceling DAB Initial Scan. Available only when " dab_initial_scan " exists in tuner - func_list
-                under /system/getFeatures.
+                For canceling DAB Initial Scan. Available only when " dab_initial_scan " exists in tuner - func_list under
+                /system/getFeatures.
             </summary>
             <returns></returns>
         </member>
@@ -633,8 +725,8 @@
         </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.getSoundProgramList(YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
-                For retrieving a list of Sound Program available in each Zone. It is possible for the list contents to
-                be dynamically changed
+                For retrieving a list of Sound Program available in each Zone. It is possible for the list contents to be
+                dynamically changed
             </summary>
             <param name="zone"></param>
             <returns></returns>
@@ -649,8 +741,8 @@
         </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setSleep(YamahaReceiverLib.Zone.ZoneConfig.zone,System.Int32)">
             <summary>
-                For setting Sleep Timer for each Zone With Zone B enabled Devices, target Zone is described as Master
-                Power, but Main Zone is used to set it up via YXC
+                For setting Sleep Timer for each Zone With Zone B enabled Devices, target Zone is described as Master Power, but
+                Main Zone is used to set it up via YXC
             </summary>
             <param name="zone"></param>
             <param name="sleep"></param>
@@ -658,8 +750,8 @@
         </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setVolume(YamahaReceiverLib.Zone.ZoneConfig.zone,System.Int32)">
             <summary>
-                For setting volume in each Zone. Values of specifying range and steps are different. There are some
-                Devices that cannot allow this value to be go up to Device’s maximum volume.
+                For setting volume in each Zone. Values of specifying range and steps are different. There are some Devices that
+                cannot allow this value to be go up to Device’s maximum volume.
             </summary>
             <param name="zone"></param>
             <param name="level"></param>
@@ -722,12 +814,13 @@
             <param name="boolvalue"></param>
             <returns></returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setToneControl(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setToneControl(YamahaReceiverLib.Zone.ZoneConfig.zone,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
             <summary>
-                For setting Tone Control in each Zone. Values of specifying range and steps are different.
+            For setting Tone Control in each Zone. Values of specifying range and steps are different.
             </summary>
             <param name="zone"></param>
-            <param name="boolvalue"></param>
+            <param name="bass"></param>
+            <param name="mode"></param>
             <returns></returns>
         </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setEqualizer(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
@@ -778,23 +871,78 @@
             <param name="volume"></param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:YamahaReceiverLib.Zone.ZoneConfig.setBassExtension(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)" -->
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setBassExtension(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
+            <summary>
+                For setting Bass Extension in each Zone.
+            </summary>
+            <param name="zone"></param>
+            <param name="boolvalue"></param>
+            <returns></returns>
+        </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.getSignalInfo(YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For retrieving current playback signal information in each Zone
             </summary>
-            <param name="zone">Enum Zone</param>
+            <param name="zone"> Enum Zone</param>
             <returns></returns>
         </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.prepareInputChange(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
             <summary>
                 Let a Device do necessary process before changing input in a specific zone. This is valid only when
-                “prepare_input_change” exists in “func_list” found in /system/getFuncStatus. MusicCast CONTROLLER
-                executes this API when an input icon is selected in a Room, right before sending various APIs (of
-                retrieving list information etc.) regarding selecting input
+                “prepare_input_change” exists in “func_list” found in /system/getFuncStatus. MusicCast CONTROLLER executes this API
+                when an input icon is selected in a Room, right before sending various APIs (of retrieving list information etc.)
+                regarding selecting input
             </summary>
             <param name="zone"></param>
             <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setLinkControl(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
+            <summary>
+                For setting Link Control in each Zone
+            </summary>
+            <param name="zone"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setLinkAudioDelay(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
+            <summary>
+                For setting Link Audio Delay in each Zone. This setting is invalid when Link Control setting is " Stability Boost "
+            </summary>
+            <param name="zone"></param>
+            <param name="delay"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setLinkAudioQuality(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
+            <summary>
+                For setting Link Audio Quality in each Zone.
+            </summary>
+            <param name="zone"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setExtraBass(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
+            <summary>
+            For setting Extra Bass in each Zone.
+            </summary>
+            <param name="zone"></param>
+            <param name="boolvalue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setAdaptiveDrc(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
+            <summary>
+            For setting Adaptive DRC in each Zone.
+            </summary>
+            <param name="zone"></param>
+            <param name="boolvalue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setContentsDisplay(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
+            <summary>
+            idk what is that
+            </summary>
+            <param name="zone"></param>
+            <param name="boolvalue"></param>
             <returns></returns>
         </member>
     </members>

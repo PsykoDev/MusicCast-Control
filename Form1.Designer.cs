@@ -50,9 +50,19 @@ namespace MusicCast_Control
             this.PureDirectToggle = new System.Windows.Forms.Button();
             this.PureDirectLabel = new System.Windows.Forms.Label();
             this.EnhancerLabel = new System.Windows.Forms.Label();
-            this.AdaDRCLabal = new System.Windows.Forms.Label();
-            this.ExtraBassLabal = new System.Windows.Forms.Label();
+            this.AdaDRCLabel = new System.Windows.Forms.Label();
+            this.ExtraBassLabel = new System.Windows.Forms.Label();
             this.SignalInfoLabel = new System.Windows.Forms.Label();
+            this.DiallvlDown = new System.Windows.Forms.Button();
+            this.DiallvlUp = new System.Windows.Forms.Button();
+            this.DialLevelLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ToneBassDown = new System.Windows.Forms.Button();
+            this.ToneBassUp = new System.Windows.Forms.Button();
+            this.ToneBassLabel = new System.Windows.Forms.Label();
+            this.ToneTrebleDown = new System.Windows.Forms.Button();
+            this.ToneTrebleUp = new System.Windows.Forms.Button();
+            this.ToneTrebleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // power_button
@@ -191,7 +201,7 @@ namespace MusicCast_Control
             // BassLabel
             // 
             this.BassLabel.AutoSize = true;
-            this.BassLabel.Location = new System.Drawing.Point(81, 334);
+            this.BassLabel.Location = new System.Drawing.Point(71, 256);
             this.BassLabel.Name = "BassLabel";
             this.BassLabel.Size = new System.Drawing.Size(60, 15);
             this.BassLabel.TabIndex = 21;
@@ -204,7 +214,7 @@ namespace MusicCast_Control
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.ForeColor = System.Drawing.Color.LawnGreen;
-            this.button1.Location = new System.Drawing.Point(46, 331);
+            this.button1.Location = new System.Drawing.Point(38, 253);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(28, 21);
@@ -219,7 +229,7 @@ namespace MusicCast_Control
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.ForeColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(11, 331);
+            this.button2.Location = new System.Drawing.Point(1, 253);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(28, 21);
@@ -232,7 +242,7 @@ namespace MusicCast_Control
             this.ExtreBassToggle.BackgroundImage = global::MusicCast_Control.Properties.Resources.power;
             this.ExtreBassToggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ExtreBassToggle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ExtreBassToggle.Location = new System.Drawing.Point(11, 292);
+            this.ExtreBassToggle.Location = new System.Drawing.Point(1, 214);
             this.ExtreBassToggle.Name = "ExtreBassToggle";
             this.ExtreBassToggle.Size = new System.Drawing.Size(25, 25);
             this.ExtreBassToggle.TabIndex = 26;
@@ -244,7 +254,7 @@ namespace MusicCast_Control
             this.AdaptativeDRCToggle.BackgroundImage = global::MusicCast_Control.Properties.Resources.power;
             this.AdaptativeDRCToggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AdaptativeDRCToggle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AdaptativeDRCToggle.Location = new System.Drawing.Point(11, 261);
+            this.AdaptativeDRCToggle.Location = new System.Drawing.Point(1, 183);
             this.AdaptativeDRCToggle.Name = "AdaptativeDRCToggle";
             this.AdaptativeDRCToggle.Size = new System.Drawing.Size(25, 25);
             this.AdaptativeDRCToggle.TabIndex = 27;
@@ -256,7 +266,7 @@ namespace MusicCast_Control
             this.EnhancerToggle.BackgroundImage = global::MusicCast_Control.Properties.Resources.power;
             this.EnhancerToggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.EnhancerToggle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.EnhancerToggle.Location = new System.Drawing.Point(11, 230);
+            this.EnhancerToggle.Location = new System.Drawing.Point(1, 152);
             this.EnhancerToggle.Name = "EnhancerToggle";
             this.EnhancerToggle.Size = new System.Drawing.Size(25, 25);
             this.EnhancerToggle.TabIndex = 28;
@@ -268,7 +278,7 @@ namespace MusicCast_Control
             this.PureDirectToggle.BackgroundImage = global::MusicCast_Control.Properties.Resources.power;
             this.PureDirectToggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PureDirectToggle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PureDirectToggle.Location = new System.Drawing.Point(11, 199);
+            this.PureDirectToggle.Location = new System.Drawing.Point(1, 121);
             this.PureDirectToggle.Name = "PureDirectToggle";
             this.PureDirectToggle.Size = new System.Drawing.Size(25, 25);
             this.PureDirectToggle.TabIndex = 29;
@@ -278,7 +288,7 @@ namespace MusicCast_Control
             // PureDirectLabel
             // 
             this.PureDirectLabel.AutoSize = true;
-            this.PureDirectLabel.Location = new System.Drawing.Point(81, 204);
+            this.PureDirectLabel.Location = new System.Drawing.Point(71, 126);
             this.PureDirectLabel.Name = "PureDirectLabel";
             this.PureDirectLabel.Size = new System.Drawing.Size(38, 15);
             this.PureDirectLabel.TabIndex = 30;
@@ -287,29 +297,29 @@ namespace MusicCast_Control
             // EnhancerLabel
             // 
             this.EnhancerLabel.AutoSize = true;
-            this.EnhancerLabel.Location = new System.Drawing.Point(81, 235);
+            this.EnhancerLabel.Location = new System.Drawing.Point(71, 157);
             this.EnhancerLabel.Name = "EnhancerLabel";
             this.EnhancerLabel.Size = new System.Drawing.Size(38, 15);
             this.EnhancerLabel.TabIndex = 31;
             this.EnhancerLabel.Text = "label2";
             // 
-            // AdaDRCLabal
+            // AdaDRCLabel
             // 
-            this.AdaDRCLabal.AutoSize = true;
-            this.AdaDRCLabal.Location = new System.Drawing.Point(80, 266);
-            this.AdaDRCLabal.Name = "AdaDRCLabal";
-            this.AdaDRCLabal.Size = new System.Drawing.Size(38, 15);
-            this.AdaDRCLabal.TabIndex = 32;
-            this.AdaDRCLabal.Text = "label3";
+            this.AdaDRCLabel.AutoSize = true;
+            this.AdaDRCLabel.Location = new System.Drawing.Point(70, 188);
+            this.AdaDRCLabel.Name = "AdaDRCLabel";
+            this.AdaDRCLabel.Size = new System.Drawing.Size(38, 15);
+            this.AdaDRCLabel.TabIndex = 32;
+            this.AdaDRCLabel.Text = "label3";
             // 
-            // ExtraBassLabal
+            // ExtraBassLabel
             // 
-            this.ExtraBassLabal.AutoSize = true;
-            this.ExtraBassLabal.Location = new System.Drawing.Point(80, 297);
-            this.ExtraBassLabal.Name = "ExtraBassLabal";
-            this.ExtraBassLabal.Size = new System.Drawing.Size(38, 15);
-            this.ExtraBassLabal.TabIndex = 33;
-            this.ExtraBassLabal.Text = "label4";
+            this.ExtraBassLabel.AutoSize = true;
+            this.ExtraBassLabel.Location = new System.Drawing.Point(70, 219);
+            this.ExtraBassLabel.Name = "ExtraBassLabel";
+            this.ExtraBassLabel.Size = new System.Drawing.Size(38, 15);
+            this.ExtraBassLabel.TabIndex = 33;
+            this.ExtraBassLabel.Text = "label4";
             // 
             // SignalInfoLabel
             // 
@@ -319,6 +329,132 @@ namespace MusicCast_Control
             this.SignalInfoLabel.TabIndex = 34;
             this.SignalInfoLabel.Text = "blap";
             // 
+            // DiallvlDown
+            // 
+            this.DiallvlDown.AutoSize = true;
+            this.DiallvlDown.BackgroundImage = global::MusicCast_Control.Properties.Resources.voldown;
+            this.DiallvlDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.DiallvlDown.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DiallvlDown.ForeColor = System.Drawing.Color.Green;
+            this.DiallvlDown.Location = new System.Drawing.Point(1, 280);
+            this.DiallvlDown.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.DiallvlDown.Name = "DiallvlDown";
+            this.DiallvlDown.Size = new System.Drawing.Size(28, 21);
+            this.DiallvlDown.TabIndex = 37;
+            this.DiallvlDown.UseVisualStyleBackColor = true;
+            this.DiallvlDown.Click += new System.EventHandler(this.DiallvlDown_Click);
+            // 
+            // DiallvlUp
+            // 
+            this.DiallvlUp.AutoSize = true;
+            this.DiallvlUp.BackgroundImage = global::MusicCast_Control.Properties.Resources.volup;
+            this.DiallvlUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.DiallvlUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DiallvlUp.ForeColor = System.Drawing.Color.LawnGreen;
+            this.DiallvlUp.Location = new System.Drawing.Point(38, 280);
+            this.DiallvlUp.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.DiallvlUp.Name = "DiallvlUp";
+            this.DiallvlUp.Size = new System.Drawing.Size(28, 21);
+            this.DiallvlUp.TabIndex = 36;
+            this.DiallvlUp.UseVisualStyleBackColor = true;
+            this.DiallvlUp.Click += new System.EventHandler(this.DiallvlUp_Click);
+            // 
+            // DialLevelLabel
+            // 
+            this.DialLevelLabel.AutoSize = true;
+            this.DialLevelLabel.Location = new System.Drawing.Point(71, 283);
+            this.DialLevelLabel.Name = "DialLevelLabel";
+            this.DialLevelLabel.Size = new System.Drawing.Size(84, 15);
+            this.DialLevelLabel.TabIndex = 35;
+            this.DialLevelLabel.Text = "Dialogue Level";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 312);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 15);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Tone Control";
+            // 
+            // ToneBassDown
+            // 
+            this.ToneBassDown.AutoSize = true;
+            this.ToneBassDown.BackgroundImage = global::MusicCast_Control.Properties.Resources.voldown;
+            this.ToneBassDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ToneBassDown.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ToneBassDown.ForeColor = System.Drawing.Color.Green;
+            this.ToneBassDown.Location = new System.Drawing.Point(10, 355);
+            this.ToneBassDown.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ToneBassDown.Name = "ToneBassDown";
+            this.ToneBassDown.Size = new System.Drawing.Size(28, 21);
+            this.ToneBassDown.TabIndex = 44;
+            this.ToneBassDown.UseVisualStyleBackColor = true;
+            this.ToneBassDown.Click += new System.EventHandler(this.ToneBassDown_Click);
+            // 
+            // ToneBassUp
+            // 
+            this.ToneBassUp.AutoSize = true;
+            this.ToneBassUp.BackgroundImage = global::MusicCast_Control.Properties.Resources.volup;
+            this.ToneBassUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ToneBassUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ToneBassUp.ForeColor = System.Drawing.Color.LawnGreen;
+            this.ToneBassUp.Location = new System.Drawing.Point(47, 355);
+            this.ToneBassUp.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ToneBassUp.Name = "ToneBassUp";
+            this.ToneBassUp.Size = new System.Drawing.Size(28, 21);
+            this.ToneBassUp.TabIndex = 43;
+            this.ToneBassUp.UseVisualStyleBackColor = true;
+            this.ToneBassUp.Click += new System.EventHandler(this.ToneBassUp_Click);
+            // 
+            // ToneBassLabel
+            // 
+            this.ToneBassLabel.AutoSize = true;
+            this.ToneBassLabel.Location = new System.Drawing.Point(80, 358);
+            this.ToneBassLabel.Name = "ToneBassLabel";
+            this.ToneBassLabel.Size = new System.Drawing.Size(61, 15);
+            this.ToneBassLabel.TabIndex = 42;
+            this.ToneBassLabel.Text = "Tone Bass:";
+            // 
+            // ToneTrebleDown
+            // 
+            this.ToneTrebleDown.AutoSize = true;
+            this.ToneTrebleDown.BackgroundImage = global::MusicCast_Control.Properties.Resources.voldown;
+            this.ToneTrebleDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ToneTrebleDown.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ToneTrebleDown.ForeColor = System.Drawing.Color.Green;
+            this.ToneTrebleDown.Location = new System.Drawing.Point(10, 328);
+            this.ToneTrebleDown.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ToneTrebleDown.Name = "ToneTrebleDown";
+            this.ToneTrebleDown.Size = new System.Drawing.Size(28, 21);
+            this.ToneTrebleDown.TabIndex = 41;
+            this.ToneTrebleDown.UseVisualStyleBackColor = true;
+            this.ToneTrebleDown.Click += new System.EventHandler(this.ToneTrebleDown_Click);
+            // 
+            // ToneTrebleUp
+            // 
+            this.ToneTrebleUp.AutoSize = true;
+            this.ToneTrebleUp.BackgroundImage = global::MusicCast_Control.Properties.Resources.volup;
+            this.ToneTrebleUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ToneTrebleUp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ToneTrebleUp.ForeColor = System.Drawing.Color.LawnGreen;
+            this.ToneTrebleUp.Location = new System.Drawing.Point(47, 328);
+            this.ToneTrebleUp.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ToneTrebleUp.Name = "ToneTrebleUp";
+            this.ToneTrebleUp.Size = new System.Drawing.Size(28, 21);
+            this.ToneTrebleUp.TabIndex = 40;
+            this.ToneTrebleUp.UseVisualStyleBackColor = true;
+            this.ToneTrebleUp.Click += new System.EventHandler(this.ToneTrebleUp_Click);
+            // 
+            // ToneTrebleLabel
+            // 
+            this.ToneTrebleLabel.AutoSize = true;
+            this.ToneTrebleLabel.Location = new System.Drawing.Point(80, 331);
+            this.ToneTrebleLabel.Name = "ToneTrebleLabel";
+            this.ToneTrebleLabel.Size = new System.Drawing.Size(69, 15);
+            this.ToneTrebleLabel.TabIndex = 39;
+            this.ToneTrebleLabel.Text = "Tone Treble:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -326,9 +462,19 @@ namespace MusicCast_Control
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(369, 402);
+            this.Controls.Add(this.ToneBassDown);
+            this.Controls.Add(this.ToneBassUp);
+            this.Controls.Add(this.ToneBassLabel);
+            this.Controls.Add(this.ToneTrebleDown);
+            this.Controls.Add(this.ToneTrebleUp);
+            this.Controls.Add(this.ToneTrebleLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DiallvlDown);
+            this.Controls.Add(this.DiallvlUp);
+            this.Controls.Add(this.DialLevelLabel);
             this.Controls.Add(this.SignalInfoLabel);
-            this.Controls.Add(this.ExtraBassLabal);
-            this.Controls.Add(this.AdaDRCLabal);
+            this.Controls.Add(this.ExtraBassLabel);
+            this.Controls.Add(this.AdaDRCLabel);
             this.Controls.Add(this.EnhancerLabel);
             this.Controls.Add(this.PureDirectLabel);
             this.Controls.Add(this.PureDirectToggle);
@@ -392,13 +538,35 @@ namespace MusicCast_Control
         private bool Enhancer;
         private bool ExtraBass;
         private bool Adaptivedrc;
+        // extra bass level
         private int maxBass = 12;
         private int minBass = -12;
         private int curBass;
+        //dial level
+        private int maxDialLevel = 3;
+        private int minDialLevel = 0;
+        private int curDialLevel;
+        // Tone level
+        private int tonetreblemax = 12;
+        private int tonetreblemin = -12;
+        private int tonetreble;
+        private int tonebassmax = 12;
+        private int tonebassmin = -12;
+        private int tonebass;
         private Label PureDirectLabel;
         private Label EnhancerLabel;
-        private Label AdaDRCLabal;
-        private Label ExtraBassLabal;
+        private Label AdaDRCLabel;
+        private Label ExtraBassLabel;
         private Label SignalInfoLabel;
+        private Button DiallvlDown;
+        private Button DiallvlUp;
+        private Label DialLevelLabel;
+        private Label label1;
+        private Button ToneBassDown;
+        private Button ToneBassUp;
+        private Label ToneBassLabel;
+        private Button ToneTrebleDown;
+        private Button ToneTrebleUp;
+        private Label ToneTrebleLabel;
     }
 }

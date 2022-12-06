@@ -24,7 +24,7 @@ public partial class Form1 : Form
     //
     // read the json settings file
     //
-    private readonly string[] inputs = new string[50];
+    private string[] inputs = new string[50];
 
     private readonly SystemConfig systemconfig = new();
     private YamahaAV yamahaAV = new();
@@ -43,35 +43,25 @@ public partial class Form1 : Form
         mcip = config.Config.IP;
         fetch_info();
         backgroundUpdate();
+        
     }
-    /*
 
-    private void read_settings()
+
+    private void Read_input_list()
     {
-        if (File.Exists("settings.json"))
+        inputs = Regex.Replace(input_list, "[ \"\n\r\\[\\]\t]", "").Split(","); // need fix 
+        foreach (var data in inputs)
         {
-            string settingsjson = File.ReadAllText("settings.json");
-            var settings = JsonNode.Parse(settingsjson);
-
-            // add inputs to combobox
-            inputs = Regex.Replace(Convert.ToString(settings["inputs"]), "[ \"\n\r\\[\\]\t]", "").Split(","); // fix this at some point
-            foreach (var input in inputs)
-            {
-                this.inputChange.Items.Add(input);
-
-            }
-            // set the ip address
-            mcip = settings["ip_address"].ToString();
+            inputChange.Items.Add(data);
         }
-        else
-        {
-            this.inputChange.Items.Add("Optical");
-            mcip = "192.168.1.50";
-        }
-        ip_address.Text = mcip; // change ip info label
+
+        // Show the selected input on input list as default
+        foreach (var input in inputs)
+            if (currentInput == input.ToLower())
+                inputChange.Text = input;
     }
 
-    */
+
 
     //
     // get the amplifier status, device info and features
@@ -92,12 +82,11 @@ public partial class Form1 : Form
             var signalinfo = JsonNode.Parse(signalinfojson);
             input_list = Convert.ToString(features["zone"][0]["input_list"]);
 
-
             // 
             // info fields
             // 
             // power and input on start
-            info.Text = "Power: " + (string)status["power"] + "; Input: " + (string)status["input"];
+            info.Text = $"Power: {(string)status["power"]} Input: {(string)status["input"]} ({(string)status["input_text"]})";
 
             // device model
             center_text.Text = (string)deviceinfo["model_name"];
@@ -106,19 +95,25 @@ public partial class Form1 : Form
             maxVol = Convert.ToString(status["max_volume"]);
             curVol = Convert.ToString(status["volume"]);
             currentInput = Convert.ToString(status["input"]);
-            mute = (bool)status["mute"];
-            BassLabel.Text = $"Bass Lvl :{Convert.ToString(status["subwoofer_volume"])}";
-            curBass = int.Parse(Convert.ToString(status["subwoofer_volume"]));
 
+            mute = (bool)status["mute"];
             PureDirect = (bool)status["pure_direct"];
             Enhancer = (bool)status["enhancer"];
             ExtraBass = (bool)status["extra_bass"];
             Adaptivedrc = (bool)status["adaptive_drc"];
+            curDialLevel = int.Parse(Convert.ToString(status["dialogue_level"]));
+            curBass = int.Parse(Convert.ToString(status["subwoofer_volume"]));
+            tonetreble = int.Parse(Convert.ToString(status["tone_control"]["treble"]));
+            tonebass = int.Parse(Convert.ToString(status["tone_control"]["bass"]));
 
             PureDirectLabel.Text = $"Pure Direct: {PureDirect}";
             EnhancerLabel.Text = $"Enhancer: {Enhancer}";
-            AdaDRCLabal.Text = $"Adaptive drc: {ExtraBass}";
-            ExtraBassLabal.Text = $"Extra Bass: {Adaptivedrc}";
+            AdaDRCLabel.Text = $"Adaptive drc: {Adaptivedrc}";
+            ExtraBassLabel.Text = $"Extra Bass: {ExtraBass}";
+            DialLevelLabel.Text = $"Dialogue Level: {curDialLevel}";
+            BassLabel.Text = $"Bass Levl: {curBass}";
+            ToneTrebleLabel.Text = $"Treble Level: {tonetreble}";
+            ToneBassLabel.Text = $"Bass Level: {tonebass}";
 
             SignalInfoLabel.Text = $"format: {signalinfo["audio"]["format"]}\nfs: {signalinfo["audio"]["fs"]}";
 
@@ -129,10 +124,10 @@ public partial class Form1 : Form
             else
                 volume.Text = Convert.ToString(status["actual_volume"]["value"]) + " dB";
 
-            // Show the selected input on input list as default
-            foreach (var input in inputs)
-                if (currentInput == input.ToLower())
-                    inputChange.Text = input;
+            if (inputChange.Items.Count < 1)
+            {
+                Read_input_list();
+            }
         }
 
         catch (Exception ex)
@@ -235,13 +230,13 @@ public partial class Form1 : Form
     private async void inputChange_SelectedIndexChanged(object sender, EventArgs e)
     {
         ActiveControl = null; // prevent focus after selection to make it prettier
-
-
+      
+      
         // check which input is selected, convert it to lowercase in case and switch to it
         var selectedInput = ((string)inputChange.SelectedItem).ToLower();
         if (currentInput != selectedInput)
         {
-            await zoneconfig.setInput(ZoneConfig.zone.main, "true", selectedInput);
+            await zoneconfig.setInput(ZoneConfig.zone.main,input: selectedInput);
             currentInput = selectedInput;
         }
     }
@@ -250,8 +245,7 @@ public partial class Form1 : Form
     {
         if (center_text.Text != "Not connected")
             MessageBox.Show(
-                center_text.Text + "\nList of supported inputs\n" + Regex.Replace(input_list, "[\\[\\]]", ""),
-                "Input list");
+                center_text.Text + "\nList of supported inputs\n" + Regex.Replace(input_list, "[\\[\\]]", "").Replace("\"", "").Replace(",", ""),"Input list");
     }
 
     private void backgroundUpdate()
@@ -267,7 +261,7 @@ public partial class Form1 : Form
         {
             var statusjson = await zoneconfig.getStatus(ZoneConfig.zone.main);
             var status = JsonNode.Parse(statusjson);
-            info.Text = "Power: " + (string)status["power"] + "; Input: " + (string)status["input"];
+            info.Text = $"Power: {(string)status["power"]} Input: {(string)status["input"]} ({(string)status["input_text"]})";
             if (mute)
                 volume.Text = "muted";
             else
@@ -314,15 +308,73 @@ public partial class Form1 : Form
 
     private void AdaptativeDRCToggle_Click(object sender, EventArgs e)
     {
-        AdaDRCLabal.Text = $"Adaptive drc: {Adaptivedrc}";
+        if (!Adaptivedrc)
+            zoneconfig.setAdaptiveDrc(ZoneConfig.zone.main, "true");
+        else
+            zoneconfig.setAdaptiveDrc(ZoneConfig.zone.main, "false");
+        AdaDRCLabel.Text = $"Adaptive drc: {Adaptivedrc}";
     }
 
     private void ExtreBassToggle_Click(object sender, EventArgs e)
     {
         if (!ExtraBass)
-            zoneconfig.setBassExtension(ZoneConfig.zone.main, "true");
+            zoneconfig.setExtraBass(ZoneConfig.zone.main, "true");
         else
-            zoneconfig.setBassExtension(ZoneConfig.zone.main, "false");
-        ExtraBassLabal.Text = $"Extra Bass: {ExtraBass}";
+            zoneconfig.setExtraBass(ZoneConfig.zone.main, "false");
+        ExtraBassLabel.Text = $"Extra Bass: {ExtraBass}";
+    }
+
+    private void DiallvlUp_Click(object sender, EventArgs e)
+    {
+        if (curDialLevel >= minDialLevel || curDialLevel <= maxDialLevel)
+        {
+            curDialLevel = curDialLevel + 1;
+            zoneconfig.setDialogueLevel(ZoneConfig.zone.main, curDialLevel);
+        }
+    }
+
+    private void DiallvlDown_Click(object sender, EventArgs e)
+    {
+        if (curDialLevel >= minDialLevel || curDialLevel <= maxDialLevel)
+        {
+            curDialLevel = curDialLevel - 1;
+            zoneconfig.setDialogueLevel(ZoneConfig.zone.main, curDialLevel);
+        }
+    }
+
+    private void ToneTrebleUp_Click(object sender, EventArgs e)
+    {
+        if (tonetreble >= tonetreblemin || tonetreble <= tonetreblemax)
+        {
+            tonetreble = tonetreble + 1;
+            zoneconfig.setToneControl(ZoneConfig.zone.main, tonetreble, null);
+        }
+    }
+
+    private void ToneTrebleDown_Click(object sender, EventArgs e)
+    {
+        if (tonetreble >= tonetreblemin || tonetreble <= tonetreblemax)
+        {
+            tonetreble = tonetreble - 1;
+            zoneconfig.setToneControl(ZoneConfig.zone.main, tonetreble, null);
+        }
+    }
+
+    private void ToneBassUp_Click(object sender, EventArgs e)
+    {
+        if (tonebass >= tonebassmin || tonebass <= tonebassmax)
+        {
+            tonebass = tonebass + 1;
+            zoneconfig.setToneControl(ZoneConfig.zone.main, null, tonebass);
+        }
+    }
+
+    private void ToneBassDown_Click(object sender, EventArgs e)
+    {
+        if (tonebass >= tonebassmin || tonebass <= tonebassmax)
+        {
+            tonebass = tonebass - 1;
+            zoneconfig.setToneControl(ZoneConfig.zone.main, null, tonebass);
+        }
     }
 }

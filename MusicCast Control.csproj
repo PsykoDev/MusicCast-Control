@@ -21,17 +21,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="Resources\mcc_icon.ico"/>
+        <Content Include="Resources\mcc_icon.ico" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.2"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="YamahaReceiverLib">
-            <HintPath>..\..\source\repos\YamahaReceiverLib\bin\Release\net7.0\YamahaReceiverLib.dll</HintPath>
-        </Reference>
+      <Reference Include="YamahaReceiverLib">
+        <HintPath>..\..\YamahaReceiverLib\bin\Release\net7.0\YamahaReceiverLib.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
     <ItemGroup>
