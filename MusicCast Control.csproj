@@ -30,7 +30,7 @@
 
     <ItemGroup>
       <Reference Include="YamahaReceiverLib">
-        <HintPath>..\..\YamahaReceiverLib\bin\Release\net7.0\YamahaReceiverLib.dll</HintPath>
+        <HintPath>YamahaReceiverLib.dll</HintPath>
       </Reference>
     </ItemGroup>
 
