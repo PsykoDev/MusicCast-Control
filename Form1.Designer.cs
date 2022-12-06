@@ -327,7 +327,6 @@ namespace MusicCast_Control
             this.SignalInfoLabel.Name = "SignalInfoLabel";
             this.SignalInfoLabel.Size = new System.Drawing.Size(179, 56);
             this.SignalInfoLabel.TabIndex = 34;
-            this.SignalInfoLabel.Text = "blap";
             // 
             // DiallvlDown
             // 
