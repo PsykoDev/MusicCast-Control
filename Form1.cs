@@ -56,7 +56,6 @@ public partial class Form1 : Form
     {
         if (config.Config.IP == "IP")
         {
-            //MessageBox.Show("");
             DialogResult result = MessageBox.Show("Please add you MusicCast ip in Config.json\nDo you want add new ip ? ", "", MessageBoxButtons.YesNo);
             switch (result)
             {
