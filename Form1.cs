@@ -40,12 +40,11 @@ public partial class Form1 : Form
     {
         await config.InitializeAsync();
         if (config.Config.IP == "IP")
-            MessageBox.Show("Please add you home theater ip in Config.json ");
+            MessageBox.Show("Please add you MusicCast ip in Config.json");
         YamahaAV.ip = config.Config.IP;
         mcip = config.Config.IP;
         fetch_info();
-        backgroundUpdate();
-        
+        backgroundUpdate();    
     }
 
 
