@@ -231,7 +231,7 @@
             <summary>
                 For recalling a content preset
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="num"></param>
             <returns></returns>
         </member>
@@ -282,7 +282,7 @@
             <summary>
                 For recalling a content via playback history
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="num"></param>
             <returns></returns>
         </member>
@@ -430,7 +430,7 @@
             <param name="pin"></param>
             <returns></returns>
         </member>
-        <member name="M:YamahaReceiverLib.System.SystemConfig.setAutoPowerStandby(System.String)">
+        <member name="M:YamahaReceiverLib.System.SystemConfig.setAutoPowerStandby(System.Boolean)">
             <summary>
                 For setting Auto Power Standby status. Actual operations/reactions of enabling Auto Power Standby depend on each
                 Device
@@ -457,14 +457,14 @@
             <param name="enable"></param>
             <returns></returns>
         </member>
-        <member name="M:YamahaReceiverLib.System.SystemConfig.setHdmiOut1(System.String)">
+        <member name="M:YamahaReceiverLib.System.SystemConfig.setHdmiOut1(System.Boolean)">
             <summary>
                 For setting HDMI OUT 1 terminal output status
             </summary>
             <param name="boolvalue"></param>
             <returns></returns>
         </member>
-        <member name="M:YamahaReceiverLib.System.SystemConfig.setHdmiOut2(System.String)">
+        <member name="M:YamahaReceiverLib.System.SystemConfig.setHdmiOut2(System.Boolean)">
             <summary>
                 For setting HDMI OUT 2 terminal output status
             </summary>
@@ -485,7 +485,7 @@
             <param name="default_gateway"></param>
             <returns></returns>
         </member>
-        <member name="M:YamahaReceiverLib.System.SystemConfig.setIrSensor(System.String)">
+        <member name="M:YamahaReceiverLib.System.SystemConfig.setIrSensor(System.Boolean)">
             <summary>
                 For setting remote control IR sensor
             </summary>
@@ -518,14 +518,14 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:YamahaReceiverLib.System.SystemConfig.setSpeakerA(System.String)">
+        <member name="M:YamahaReceiverLib.System.SystemConfig.setSpeakerA(System.Boolean)">
             <summary>
                 For setting Speaker A status
             </summary>
             <param name="boolvalue"></param>
             <returns></returns>
         </member>
-        <member name="M:YamahaReceiverLib.System.SystemConfig.setSpeakerB(System.String)">
+        <member name="M:YamahaReceiverLib.System.SystemConfig.setSpeakerB(System.Boolean)">
             <summary>
                 For setting Speaker B status
             </summary>
@@ -572,7 +572,7 @@
             <param name="default_gateway"></param>
             <returns></returns>
         </member>
-        <member name="M:YamahaReceiverLib.System.SystemConfig.setZoneBVolumeSync(System.String)">
+        <member name="M:YamahaReceiverLib.System.SystemConfig.setZoneBVolumeSync(System.Boolean)">
             <summary>
                 For setting Zone B volume sync
             </summary>
@@ -603,7 +603,7 @@
             <summary>
                 For retrieving Tuner preset information
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="band"></param>
             <returns></returns>
         </member>
@@ -632,7 +632,7 @@
             <summary>
                 For recalling a Tuner preset
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="band"></param>
             <param name="num"></param>
             <returns></returns>
@@ -720,7 +720,7 @@
             <summary>
                 For retrieving basic information of each Zone like power, volume, input and so on
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <returns>String data or just response_code</returns>
         </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.getSoundProgramList(YamahaReceiverLib.Zone.ZoneConfig.zone)">
@@ -728,15 +728,15 @@
                 For retrieving a list of Sound Program available in each Zone. It is possible for the list contents to be
                 dynamically changed
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <returns>String data or just response_code</returns>
         </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setPower(YamahaReceiverLib.Zone.ZoneConfig.zone,System.String)">
             <summary>
                 For setting power status of each Zone
             </summary>
-            <param name="zone"></param>
-            <param name="code"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
+            <param name="power">Values: "on" / "standby" / "toggle"</param>
             <returns>String data or just response_code</returns>
         </member>
         <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setSleep(System.Int32,YamahaReceiverLib.Zone.ZoneConfig.zone)">
@@ -744,7 +744,7 @@
                 For setting Sleep Timer for each Zone With Zone B enabled Devices, target Zone is described as Master Power, but
                 Main Zone is used to set it up via YXC
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="sleep"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -753,15 +753,15 @@
                 For setting volume in each Zone. Values of specifying range and steps are different. There are some Devices that
                 cannot allow this value to be go up to Device’s maximum volume.
             </summary>
-            <param name="zone"></param>
-            <param name="level"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
+            <param name="volume"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setMute(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setMute(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For setting mute status in each Zone
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -769,8 +769,8 @@
             <summary>
                 For selecting each Zone input
             </summary>
-            <param name="zone"></param>
-            <param name="boolvalue"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
+            <param name="input"></param>
             <param name="mode"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -778,39 +778,39 @@
             <summary>
                 For selecting Sound Programs
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="program"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.set3dSurround(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.set3dSurround(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For setting 3D Surround status
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setDirect(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setDirect(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For setting Direct status
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setPureDirect(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setPureDirect(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For setting Pure Direct status
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setEnhancer(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setEnhancer(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For setting Enhancer status
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -818,16 +818,16 @@
             <summary>
             For setting Tone Control in each Zone. Values of specifying range and steps are different.
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="bass"></param>
             <param name="mode"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setEqualizer(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setEqualizer(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For setting Equalizer in each Zone. Values of specifying range and steps are different
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -835,7 +835,7 @@
             <summary>
                 For setting L/R Balance in each Zone’s speaker. Values of specifying range and steps are different.
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="value"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -843,7 +843,7 @@
             <summary>
                 For setting Dialogue Level in each Zone. Values of specifying range and steps are different
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="value"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -851,15 +851,15 @@
             <summary>
                 For setting Dialogue Lift in each Zone. Values of specifying range and steps are different.
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="value"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setClearVoice(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setClearVoice(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For setting Clear Voice in each Zone.
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -867,15 +867,15 @@
             <summary>
                 For setting Subwoofer Volume in each Zone
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="volume"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setBassExtension(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setBassExtension(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
                 For setting Bass Extension in each Zone.
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -893,7 +893,7 @@
                 when an input icon is selected in a Room, right before sending various APIs (of retrieving list information etc.)
                 regarding selecting input
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="input"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -901,7 +901,7 @@
             <summary>
                 For setting Link Control in each Zone
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="input"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -909,7 +909,7 @@
             <summary>
                 For setting Link Audio Delay in each Zone. This setting is invalid when Link Control setting is " Stability Boost "
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="delay"></param>
             <returns>String data or just response_code</returns>
         </member>
@@ -917,31 +917,31 @@
             <summary>
                 For setting Link Audio Quality in each Zone.
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="mode"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setExtraBass(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setExtraBass(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
             For setting Extra Bass in each Zone.
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setAdaptiveDrc(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setAdaptiveDrc(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
             For setting Adaptive DRC in each Zone.
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>
-        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setContentsDisplay(System.String,YamahaReceiverLib.Zone.ZoneConfig.zone)">
+        <member name="M:YamahaReceiverLib.Zone.ZoneConfig.setContentsDisplay(System.Boolean,YamahaReceiverLib.Zone.ZoneConfig.zone)">
             <summary>
             idk what is that
             </summary>
-            <param name="zone"></param>
+            <param name="zone">Values: "main" / "zone2" / "zone3" / "zone4"</param>
             <param name="boolvalue"></param>
             <returns>String data or just response_code</returns>
         </member>

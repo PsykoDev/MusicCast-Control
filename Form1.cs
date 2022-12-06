@@ -194,8 +194,7 @@ public partial class Form1 : Form
     private async void power_button_Click(object sender, EventArgs e)
     {
         // power toggle
-
-        var powerToggle = await zoneconfig.setPower(ZoneConfig.zone.main);
+        await zoneconfig.setPower();
     }
 
     private async void volumedown_button_Click(object sender, EventArgs e)
@@ -230,13 +229,13 @@ public partial class Form1 : Form
     {
         if (!mute)
         {
-            var muteVol = await zoneconfig.setMute("true");
+            var muteVol = await zoneconfig.setMute(true);
             mute = true;
             volume.Text = "muted";
         }
         else
         {
-            var muteVol = await zoneconfig.setMute("false");
+            var muteVol = await zoneconfig.setMute(false);
             updateVolume();
             mute = false;
         }
@@ -351,36 +350,36 @@ public partial class Form1 : Form
     private void PureDirectToggle_Click(object sender, EventArgs e)
     {
         if (!PureDirect)
-            zoneconfig.setPureDirect("true");
+            zoneconfig.setPureDirect(true);
         else
-            zoneconfig.setPureDirect("false");
+            zoneconfig.setPureDirect(false);
         PureDirectLabel.Text = $"Pure Direct: {PureDirect}";
     }
 
     private void EnhancerToggle_Click(object sender, EventArgs e)
     {
         if (!Enhancer)
-            zoneconfig.setEnhancer("true");
+            zoneconfig.setEnhancer(true);
         else
-            zoneconfig.setEnhancer("false");
+            zoneconfig.setEnhancer(false);
         EnhancerLabel.Text = $"Enhancer: {Enhancer}";
     }
 
     private void AdaptativeDRCToggle_Click(object sender, EventArgs e)
     {
         if (!Adaptivedrc)
-            zoneconfig.setAdaptiveDrc("true");
+            zoneconfig.setAdaptiveDrc(true);
         else
-            zoneconfig.setAdaptiveDrc("false");
+            zoneconfig.setAdaptiveDrc(false);
         AdaDRCLabel.Text = $"Adaptive drc: {Adaptivedrc}";
     }
 
     private void ExtreBassToggle_Click(object sender, EventArgs e)
     {
         if (!ExtraBass)
-            zoneconfig.setExtraBass("true");
+            zoneconfig.setExtraBass(true);
         else
-            zoneconfig.setExtraBass("false");
+            zoneconfig.setExtraBass(false);
         ExtraBassLabel.Text = $"Extra Bass: {ExtraBass}";
     }
 
