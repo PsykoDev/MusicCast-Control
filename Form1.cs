@@ -49,7 +49,6 @@ public partial class Form1 : Form
     {
         YamahaAV.ip = config.Config.IP;
         fetch_info();
-        //backgroundUpdate();
     }
 
     private async Task updatConfigIP()
@@ -206,7 +205,7 @@ public partial class Form1 : Form
         {
             var setVol = Convert.ToInt32(curVol) - 1;
 
-            var incVol = await zoneconfig.setVolume(ZoneConfig.zone.main, setVol);
+            var incVol = await zoneconfig.setVolume(setVol);
             curVol = Convert.ToString(setVol);
             mute = false;
             updateVolume();
@@ -220,7 +219,7 @@ public partial class Form1 : Form
         {
             var setVol = Convert.ToInt32(curVol) + 1;
 
-            var incVol = await zoneconfig.setVolume(ZoneConfig.zone.main, setVol);
+            var incVol = await zoneconfig.setVolume(setVol);
             curVol = Convert.ToString(setVol);
             mute = false;
             updateVolume();
@@ -231,13 +230,13 @@ public partial class Form1 : Form
     {
         if (!mute)
         {
-            var muteVol = await zoneconfig.setMute(ZoneConfig.zone.main, "true");
+            var muteVol = await zoneconfig.setMute("true");
             mute = true;
             volume.Text = "muted";
         }
         else
         {
-            var muteVol = await zoneconfig.setMute(ZoneConfig.zone.main, "false");
+            var muteVol = await zoneconfig.setMute("false");
             updateVolume();
             mute = false;
         }
@@ -250,7 +249,7 @@ public partial class Form1 : Form
         {
             var setVol = Convert.ToInt32(curVol) - 1;
 
-            var incVol = await zoneconfig.setVolume(ZoneConfig.zone.main, setVol);
+            var incVol = await zoneconfig.setVolume(setVol);
             curVol = Convert.ToString(setVol);
             updateVolume();
         }
@@ -263,7 +262,7 @@ public partial class Form1 : Form
         {
             var setVol = Convert.ToInt32(curVol) + 1;
 
-            var incVol = await zoneconfig.setVolume(ZoneConfig.zone.main, setVol);
+            var incVol = await zoneconfig.setVolume(setVol);
             curVol = Convert.ToString(setVol);
             updateVolume();
         }
@@ -285,7 +284,7 @@ public partial class Form1 : Form
         var selectedInput = ((string)inputChange.SelectedItem).ToLower();
         if (currentInput != selectedInput)
         {
-            await zoneconfig.setInput(ZoneConfig.zone.main,input: selectedInput);
+            await zoneconfig.setInput(selectedInput);
             currentInput = selectedInput;
         }
     }
@@ -297,7 +296,7 @@ public partial class Form1 : Form
         var selectedInput = ((string)programSound.SelectedItem).ToLower();
         if (currentSoundProgram != selectedInput)
         {
-            await zoneconfig.setSoundProgram(ZoneConfig.zone.main, selectedInput);
+            await zoneconfig.setSoundProgram(selectedInput);
             currentSoundProgram = selectedInput;
         }
     }
@@ -336,7 +335,7 @@ public partial class Form1 : Form
         if (curBass >= minBass || curBass <= maxBass)
         {
             curBass = curBass + 1;
-            zoneconfig.setSubwooferVolume(ZoneConfig.zone.main, curBass);
+            zoneconfig.setSubwooferVolume(volume: curBass);
         }
     }
 
@@ -345,43 +344,43 @@ public partial class Form1 : Form
         if (curBass >= minBass || curBass <= maxBass)
         {
             curBass = curBass - 1;
-            zoneconfig.setSubwooferVolume(ZoneConfig.zone.main, curBass);
+            zoneconfig.setSubwooferVolume(volume: curBass);
         }
     }
 
     private void PureDirectToggle_Click(object sender, EventArgs e)
     {
         if (!PureDirect)
-            zoneconfig.setPureDirect(ZoneConfig.zone.main, "true");
+            zoneconfig.setPureDirect("true");
         else
-            zoneconfig.setPureDirect(ZoneConfig.zone.main, "false");
+            zoneconfig.setPureDirect("false");
         PureDirectLabel.Text = $"Pure Direct: {PureDirect}";
     }
 
     private void EnhancerToggle_Click(object sender, EventArgs e)
     {
         if (!Enhancer)
-            zoneconfig.setEnhancer(ZoneConfig.zone.main, "true");
+            zoneconfig.setEnhancer("true");
         else
-            zoneconfig.setEnhancer(ZoneConfig.zone.main, "false");
+            zoneconfig.setEnhancer("false");
         EnhancerLabel.Text = $"Enhancer: {Enhancer}";
     }
 
     private void AdaptativeDRCToggle_Click(object sender, EventArgs e)
     {
         if (!Adaptivedrc)
-            zoneconfig.setAdaptiveDrc(ZoneConfig.zone.main, "true");
+            zoneconfig.setAdaptiveDrc("true");
         else
-            zoneconfig.setAdaptiveDrc(ZoneConfig.zone.main, "false");
+            zoneconfig.setAdaptiveDrc("false");
         AdaDRCLabel.Text = $"Adaptive drc: {Adaptivedrc}";
     }
 
     private void ExtreBassToggle_Click(object sender, EventArgs e)
     {
         if (!ExtraBass)
-            zoneconfig.setExtraBass(ZoneConfig.zone.main, "true");
+            zoneconfig.setExtraBass("true");
         else
-            zoneconfig.setExtraBass(ZoneConfig.zone.main, "false");
+            zoneconfig.setExtraBass("false");
         ExtraBassLabel.Text = $"Extra Bass: {ExtraBass}";
     }
 
@@ -390,7 +389,7 @@ public partial class Form1 : Form
         if (curDialLevel >= minDialLevel || curDialLevel <= maxDialLevel)
         {
             curDialLevel = curDialLevel + 1;
-            zoneconfig.setDialogueLevel(ZoneConfig.zone.main, curDialLevel);
+            zoneconfig.setDialogueLevel(value: curDialLevel);
         }
     }
 
@@ -399,7 +398,7 @@ public partial class Form1 : Form
         if (curDialLevel >= minDialLevel || curDialLevel <= maxDialLevel)
         {
             curDialLevel = curDialLevel - 1;
-            zoneconfig.setDialogueLevel(ZoneConfig.zone.main, curDialLevel);
+            zoneconfig.setDialogueLevel(value: curDialLevel);
         }
     }
 
@@ -408,7 +407,7 @@ public partial class Form1 : Form
         if (tonetreble >= tonetreblemin || tonetreble <= tonetreblemax)
         {
             tonetreble = tonetreble + 1;
-            zoneconfig.setToneControl(ZoneConfig.zone.main, tonetreble, null);
+            zoneconfig.setToneControl(tonetreble, null);
         }
     }
 
@@ -417,7 +416,7 @@ public partial class Form1 : Form
         if (tonetreble >= tonetreblemin || tonetreble <= tonetreblemax)
         {
             tonetreble = tonetreble - 1;
-            zoneconfig.setToneControl(ZoneConfig.zone.main, tonetreble, null);
+            zoneconfig.setToneControl(tonetreble, null);
         }
     }
 
@@ -426,7 +425,7 @@ public partial class Form1 : Form
         if (tonebass >= tonebassmin || tonebass <= tonebassmax)
         {
             tonebass = tonebass + 1;
-            zoneconfig.setToneControl(ZoneConfig.zone.main, null, tonebass);
+            zoneconfig.setToneControl(null, tonebass);
         }
     }
 
@@ -435,7 +434,7 @@ public partial class Form1 : Form
         if (tonebass >= tonebassmin || tonebass <= tonebassmax)
         {
             tonebass = tonebass - 1;
-            zoneconfig.setToneControl(ZoneConfig.zone.main, null, tonebass);
+            zoneconfig.setToneControl(null, tonebass);
         }
     }
 
